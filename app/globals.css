@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'CaskaydiaMonoNerd';
+  src: url(../public/fonts/CaskaydiaMonoNerdFont-Regular.ttf);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  font-family: 'CaskaydiaMonoNerd';
 }
 
 @theme inline {
@@ -22,5 +28,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
