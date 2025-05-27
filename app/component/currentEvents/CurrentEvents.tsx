@@ -1,5 +1,6 @@
 "use client"
 
+import { FaInfoCircle } from "react-icons/fa";
 import { CiCalendarDate } from "react-icons/ci";
 import { events } from "../../../data.js";
 const CurrentEvents = () => {
@@ -28,15 +29,15 @@ const CurrentEvents = () => {
             </div>
             <div className="w-[47%] text-left">
               <p className=" text-3xl mt-4"> {i.eventName} </p>
-              <div className="flex gap-6 ">
+              <div className="flex gap-4 items-center">
                 <CiCalendarDate className="fill-stone-900 w-8 h-8" />
                 <p>{allDate.split(" ")[0]}</p>
                 <p> {months[allDate.split(" ")[1]]} </p>
 
-                <p>                {allDate.split(" ")[2]}
+                <p>   {allDate.split(" ")[2]}
                 </p>
               </div>
-              <p>{i.eventDetails}</p>
+              <p className="flex items-center fill-black gap-3 "> <FaInfoCircle className="text-black" /> {i.eventDetails}</p>
 
 
             </div>
