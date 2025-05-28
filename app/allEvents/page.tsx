@@ -11,27 +11,13 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 const AllEvents = () => {
   const [getedSelectedDate, setGetedSelectedDate] = useState();
   const [dataBase, setDataBase] = useState();
+  const [findResult, setFindResult] = useState([]);
 
   const getSelectedDate = (inp) => {
     console.log(inp);
     setGetedSelectedDate(inp);
   }
   useEffect(() => {
-    const convertArrayToObject = () => {
-
-      console.log("-------------111newObj111----------------");
-      //
-      // const ddate = events.map((i) => i.eventDate).forEach(l => {
-      //   console.log({ ...l });
-      //   objData.push({ ...l });
-      //   // return { ...l }
-      // })
-
-
-      console.log("-------------newObj----------------");
-
-    }
-    convertArrayToObject()
     setDataBase(prev => events.map(i => i));
   }, [getedSelectedDate])
   useEffect(() => {
@@ -44,34 +30,42 @@ const AllEvents = () => {
       console.log(f.eventDate[0] == getedSelectedDate.day && f.eventDate[1] == getedSelectedDate.month && f.eventDate[2] == getedSelectedDate.year);
     })
 
+    const finder = dataBase?.filter(f => f.eventDate[0] == getedSelectedDate.day
+      && f.eventDate[1] == getedSelectedDate.month &&
+      f.eventDate[2] == getedSelectedDate.year);
 
+    setFindResult(dataBase?.filter(f => f.eventDate[0] == getedSelectedDate.day
+      && f.eventDate[1] == getedSelectedDate.month &&
+      f.eventDate[2] == getedSelectedDate.year))
+
+    console.log(finder)
+    console.log(typeof finder)
+    console.log(finder.length)
   }, [dataBase])
 
   return (<>
     <SearchBar styles={styles} getSelectedData={getSelectedDate} />
     <div>
-      {dataBase?.filter(f => f.eventDate[0] == getedSelectedDate.day
-        && f.eventDate[1] == getedSelectedDate.month &&
-        f.eventDate[2] == getedSelectedDate.year).map(p => <div key={p} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
-          <div className='w-[50%] h-full rounded-l-2xl'>
-            <img className="w-full h-full rounded-l-2xl" src={'https://imgs.search.brave.com/-3-7GcyWMLK4cqHRxnuVq-otl9WSNKPfGb8XPg-tqJE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vSnNmMERk/bDRBWHJqQzJ4QmZq/Z3dsN1lyTmJFMzFl/RXp5QzFwcDQ5UDEw/dy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlw/YldjdS9abkpsWlhC/cGF5NWpiMjB2L1pt/OTBiM010Y0hKbGJX/bDEvYlM5dGRXcGxj/aTF6YjNOMC9hV1Z1/WlMxallXMWhjbUV0/L2RHOXRZUzFtYjNS/dlh6ZzUvT1RnM01D/MDFNak01TVM1cS9j/R2NfYzJWdGREMWhh/WE5mL2FIbGljbWxr/Sm5jOU56UXc.jpeg'} />
+      {findResult.length ? findResult.map(p => <div key={p} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
+        <div className='w-[50%] h-full rounded-l-2xl'>
+          <img className="w-full h-full rounded-l-2xl" src={'https://imgs.search.brave.com/tiMvKLWQ8o8J59kE1GQOGkjoEUiDLHH6Emp4DcUEgrI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZW1l/c2JhbXMuY29tL2Rl/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9zaXRl/cy8yLzIwMTgvMDYv/THVzdGlnZS1QaWN0/dXJlcy16dW0tR2Vi/dXJ0c3RhZy1uYWNo/dHJhZ2xpY2gtMS5q/cGc'} />
 
+        </div>
+        <div className="w-[47%] text-left">
+          <p className=" text-3xl mt-4"> {p.eventName} </p>
+          <div className="flex gap-4 items-center">
+            <CiCalendarDate className="fill-stone-900 w-8 h-8" />
+            <p>{p.eventDate[0]}.</p>
+            <p> {months[p.eventDate[1] - 1]} </p>
+
+            <p>   {p.eventDate[2]}
+            </p>
           </div>
-          <div className="w-[47%] text-left">
-            <p className=" text-3xl mt-4"> {p.eventName} </p>
-            <div className="flex gap-4 items-center">
-              <CiCalendarDate className="fill-stone-900 w-8 h-8" />
-              <p>{p.eventDate[0]}.</p>
-              <p> {months[p.eventDate[1] - 1]} </p>
-
-              <p>   {p.eventDate[2]}
-              </p>
-            </div>
-            <p className="flex items-center fill-black gap-3 "> <FaInfoCircle className="text-black" /> {p.eventDetails}</p>
+          <p className="flex items-center fill-black gap-3 "> <FaInfoCircle className="text-black" /> {p.eventDetails}</p>
 
 
-          </div>
-        </div>)}
+        </div>
+      </div>) : <div className="text-white text-center mt-16 text-3xl">Heute gibt es vielleicht kein Ereignis!🤔🤔</div>}
     </div>
   </>)
 }
