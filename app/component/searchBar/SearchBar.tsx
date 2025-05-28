@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 // import styles from "@/app/allEvents/allEvents.module.css"
 
 const SearchBar = ({ styles, getSelectedData }) => {
+  const [selectedDate, setSelecetedDate] = useState({ year: 2026, month: 1, day: 1 });
+  const [finalSelectedDate, setFinalSelecetedDate] = useState({});
+  //const [selectedDate, setSelecetedDate] = useState({ year: 2026, month: 1, day: 1 });
   const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
   const years = [];
   const days = [];
@@ -14,20 +17,23 @@ const SearchBar = ({ styles, getSelectedData }) => {
   for (let i = 1; i <= 30; i++) {
     days.push(i);
   }
-  const [selectedDate, setSelecetedDate] = useState({ year: 2026, month: 1, day: 1 });
   const changeSelected = (event) => {
-    console.log(event.target.value, event.target.id)
+    console.log(event.target.value, event.target.id);
     const valueDate = event.target.value;
     const typeDate = event.target.id;
     setSelecetedDate(prev => {
       return { ...prev, [typeDate]: valueDate }
     })
   }
+  const changeSelectedData = () => {
+    setFinalSelecetedDate(selectedDate);
+  }
   useEffect(() => {
-
-    console.log(selectedDate);
-
-  }, [selectedDate])
+    // getSelectedData(selectedDate);
+    getSelectedData(finalSelectedDate);
+    // console.log(selectedDate);
+    // console.log(finalSelectedDate)
+  }, [finalSelectedDate])
   return (
     <>
       <div className="">
@@ -50,7 +56,7 @@ const SearchBar = ({ styles, getSelectedData }) => {
                 {days.map(i => <option value={i} key={i} className="text-center">{i}.</option>)}
 
               </select>
-              <button className="bg-[#9DB2BF] w-32 rounded-2xl border-white border-2 cursor-pointer" type="button">Search </button>
+              <button onClick={changeSelectedData} className="bg-[#9DB2BF] w-32 rounded-2xl border-white border-2 cursor-pointer" type="button">Search </button>
             </div>
           </div>
         </div>

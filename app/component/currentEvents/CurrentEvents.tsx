@@ -1,11 +1,9 @@
 "use client"
-
 import { FaInfoCircle } from "react-icons/fa";
 import { CiCalendarDate } from "react-icons/ci";
 import { events } from "../../../data.js";
 const CurrentEvents = () => {
   const today = new Date();
-
   const allDate = [today.getDate(), today.getMonth(), today.getFullYear()].join(" ");
   // console.log(today.getDate());
   // const thisMonth = allDate.split(" ")[1];
