@@ -45,7 +45,7 @@ const AllEvents = () => {
 
   return (<>
     <SearchBar styles={styles} getSelectedData={getSelectedDate} />
-    <div>
+    <div className="flex flex-col gap-6">
       {findResult?.length ? findResult.map(p => <div key={p.id} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
         <div className='w-[50%] h-full rounded-l-2xl'>
           <img className="w-full h-full rounded-l-2xl" src={`${p.eventPic}`} />
