@@ -40,15 +40,15 @@ const AllEvents = () => {
 
     console.log(finder)
     console.log(typeof finder)
-    console.log(finder.length)
+    // console.log(finder.length)
   }, [dataBase])
 
   return (<>
     <SearchBar styles={styles} getSelectedData={getSelectedDate} />
     <div>
-      {findResult.length ? findResult.map(p => <div key={p} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
+      {findResult?.length ? findResult.map(p => <div key={p.id} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
         <div className='w-[50%] h-full rounded-l-2xl'>
-          <img className="w-full h-full rounded-l-2xl" src={'https://imgs.search.brave.com/tiMvKLWQ8o8J59kE1GQOGkjoEUiDLHH6Emp4DcUEgrI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZW1l/c2JhbXMuY29tL2Rl/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9zaXRl/cy8yLzIwMTgvMDYv/THVzdGlnZS1QaWN0/dXJlcy16dW0tR2Vi/dXJ0c3RhZy1uYWNo/dHJhZ2xpY2gtMS5q/cGc'} />
+          <img className="w-full h-full rounded-l-2xl" src={`${p.eventPic}`} />
 
         </div>
         <div className="w-[47%] text-left">
