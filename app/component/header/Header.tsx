@@ -15,9 +15,11 @@ const Header = () => {
         </div>
         <div className="list flex gap-16 pr-12 justify-center">
           <p className="cursor-pointer">
-            <Link href={'/allEvents'}>See all events</Link>
+            <Link href={'/allEvents'}>Alle Ereignisse sehen</Link>
           </p>
-          <p className="cursor-pointer text-stone-800">more about us</p>
+          <p className="cursor-pointer text-stone-800">
+            <Link href={'/about'}>Mehr über mich</Link>
+          </p>
         </div>
         <div className="w-16 h-full"></div>
       </div>
