@@ -9,16 +9,16 @@ const About = () => {
         </div>
         <div className="main text-center pt-20 w-full h-[80%]"> <h3 className="text-xl text-center">Wer bin ich wirklich ?</h3>
           <p className="description max-w-[80%] mx-auto pt-8 text-left">
-            <p className="gruss m-0">
+            <p className="gruss mb-2">
               Hallo Leute,
 
             </p>
-            ich bin Ali und nun 17 Jhare alt. Ich lerne Front-End Entwicklung und interessiere mich für Teknologie, Programmierung, Linux und zwiefellos Deutsch, was sie nun in diesen Erklärungen sehen.
+            ich bin Ali und nun 17 Jhare alt. Ich lerne Front-End Entwicklung und interessiere mich für Technologie, Programmierung, Linux und zwiefellos Deutsch, was sie nun in diesen Erklärungen sehen.
             Dieses Projekt habe ich erstellt, um nur etwa next js zu üben.
             <br />
             <div className="space w-[98%] mx-auto h-1 my-4 border-dashed border-t-2"></div>
             In diesem Projekt habe ich verschiedene Themen wie: routes, local DataBase, tailwindCss, tsx usw. verwendet!
-            Ich hoffe es, dass es Ihnen gefallen hätte🙂
+            <p className="mt-4">Ich hoffe es, dass es Ihnen gefallen hätte🙂</p>
           </p>
         </div>
       </div>
