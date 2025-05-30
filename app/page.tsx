@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div className="">
-        <p className='text-center mt-12'>You can see now current events</p>
+        <p className='text-center mt-12'>You can see now current events today</p>
         <CurrentEvents />
       </div>
     </>

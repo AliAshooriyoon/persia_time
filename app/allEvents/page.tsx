@@ -22,9 +22,6 @@ const AllEvents = () => {
     setDataBase(prev => events.map(i => i));
   }, [getedSelectedDate])
   useEffect(() => {
-    console.log("1111111111111111111111111111111111");
-    console.log(dataBase)
-    console.log(getedSelectedDate)
     // dataBase.find(f => f[2] == getedSelectedDate.year)
     dataBase?.forEach((f) => {
       console.log(f.eventDate);
@@ -64,9 +61,12 @@ const AllEvents = () => {
           </div>
           <p className="flex items-center fill-black gap-3 "> <FaInfoCircle className="text-black" /> {p.eventDetails}</p>
           <div className="text-right">
-            <button className="bg-cyan-800 cursor-pointer w-36 h-10 rounded-2xl mt-12 mr-4 ">
-              <Link href={`/allEvents/event${p.id}`}>Mehre Angaben</Link>
-            </button>
+
+            <Link href={`/allEvents/event${p.id}`}>
+              <button className="bg-cyan-800 cursor-pointer w-36 h-10 rounded-2xl mt-12 mr-4 ">
+                Mehre Angaben
+              </button>
+            </Link>
           </div>
         </div>
       </div>) : <div className="text-white text-center mt-16 text-3xl">Heute gibt es vielleicht kein Ereignis!🤔🤔</div>}
