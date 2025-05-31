@@ -1,16 +1,20 @@
 import { events } from "@/data";
+
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 const PageEvent = ({ params }) => {
   const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
   const paramArray = params.event.split("");
-  const paramID = paramArray[paramArray.length - 1];
-  console.log(paramID)
-  const finder = events.filter(i => i.id == paramID)[0];
+  // const paramID = paramArray[paramArray.length - 1];
+  const whereSearch = paramArray.slice(5, paramArray.length).join("");
+  // const finder = events.filter(i => i.id == paramID)[0];
+  const finder = events.filter(i => i.id == Number(whereSearch))[0];
+  console.log(whereSearch)
   console.log(finder)
   return (
     <>
-      <div>
+      {finder ? <div>
         Page Event {params?.event}
         <div className="w-[63%] h-[30rem] mx-auto mt-16 p-4 bg-[#222831] rounded-3xl">
           <Link href={'/allEvents'}>
@@ -26,7 +30,7 @@ const PageEvent = ({ params }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> : notFound()}
     </>
   )
 }
