@@ -22,7 +22,7 @@ const CurrentEvents = () => {
         {events.filter(i => i.eventDate.join(' ') == allDate).map(i => {
           return <div key={i.id} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
             <div className='w-[50%] h-full rounded-l-2xl'>
-              <img className="w-full h-full rounded-l-2xl" src={'https://imgs.search.brave.com/-3-7GcyWMLK4cqHRxnuVq-otl9WSNKPfGb8XPg-tqJE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vSnNmMERk/bDRBWHJqQzJ4QmZq/Z3dsN1lyTmJFMzFl/RXp5QzFwcDQ5UDEw/dy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlw/YldjdS9abkpsWlhC/cGF5NWpiMjB2L1pt/OTBiM010Y0hKbGJX/bDEvYlM5dGRXcGxj/aTF6YjNOMC9hV1Z1/WlMxallXMWhjbUV0/L2RHOXRZUzFtYjNS/dlh6ZzUvT1RnM01D/MDFNak01TVM1cS9j/R2NfYzJWdGREMWhh/WE5mL2FIbGljbWxr/Sm5jOU56UXc.jpeg'} />
+              <img className="w-full h-full rounded-l-2xl" src={i.eventPic} />
 
             </div>
             <div className="w-[47%] text-left">
