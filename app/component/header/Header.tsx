@@ -1,7 +1,12 @@
+"use client"
 import Image from "next/image";
 import azadiLogo from "@/public/azadi_1354297.png"
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 const Header = () => {
+  const currentPath = usePathname()
+  console.log(currentPath);
+
   return (
     <>
       <div className="text-center bg-[#9DB2BF] text-black h-16 flex items-center justify-between text-2xl px-6">
@@ -14,10 +19,10 @@ const Header = () => {
           </span>
         </div>
         <div className="list flex gap-16 pr-12 justify-center">
-          <p className="cursor-pointer">
+          <p className={`cursor-pointer  ${currentPath == '/allEvents' && 'underline'}`}>
             <Link href={'/allEvents'}>Alle Ereignisse sehen</Link>
           </p>
-          <p className="cursor-pointer text-stone-800">
+          <p className={`cursor-pointer ${currentPath == '/about' && 'underline'} `} >
             <Link href={'/about'}>Mehr über mich</Link>
           </p>
         </div>
