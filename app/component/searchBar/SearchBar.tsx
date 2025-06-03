@@ -38,7 +38,7 @@ const SearchBar = ({ styles, getSelectedData }) => {
     <>
       <div className="">
         <div>
-          <div className="mx-auto w-[50%] min-h-16 text-center mt-8 text-white">
+          <div className="mx-auto min-w-[50%] min-h-16 text-center mt-8 text-white">
             <div className="flex justify-center gap-4 md:gap-6  p-2 flex-wrap">
               <p className={styles.titleSelect}>Year</p>
               <select onChange={changeSelected} id={'year'} className="w-56 border-2 bg-stone-800  rounded-2xl outline-0">
