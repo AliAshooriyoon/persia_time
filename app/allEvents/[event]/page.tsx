@@ -15,17 +15,16 @@ const PageEvent = ({ params }) => {
   return (
     <>
       {finder ? <div>
-        Page Event {params?.event}
-        <div className="w-[63%] h-[30rem] mx-auto mt-16 p-4 bg-[#222831] rounded-3xl">
+        <div className="w-[95%] md:w-[63%] min-h-[30rem] md:min-h-[30rem] mx-auto mt-16 p-4 bg-[#222831] rounded-3xl">
           <Link href={'/allEvents'}>
             <IoChevronBackCircleSharp className="w-12 h-12 absolute" />
           </Link>
-          <div className="header"> <h1 className="h-[4rem] text-center text-3xl">  {finder.eventName}</h1>
-            <div className="main flex justify-between flex-row-reverse h-[20rem]"> <img className="h-full w-96 rounded-3xl" src={finder.eventPic} alt='pic' />
-              <div className="information pt-8 w-[50%] pl-8 text-xl flex flex-col gap-4">
+          <div className="main flex flex-col gap-4"> <h1 className="h-[4rem] text-center text-3xl">  {finder.eventName}</h1>
+            <div className="main flex justify-between flex-col md:flex-row-reverse md:min-h-[20rem]"> <img className="h-[50%] w-full md:h-full md:w-96 rounded-3xl" src={finder.eventPic} alt='pic' />
+              <div className="information pt-4 md:pt-8 w-full md:w-[50%] pl-4 md:pl-8 text-base md:text-xl flex  flex-row md:flex-col gap-4 flex-wrap md:flex-nowrap">
                 <h2 className="">Datum : {finder.eventDate[0]}. {months[finder.eventDate[1]]} im jahr {finder.eventDate[2]}</h2>
                 <p className="">{finder.eventDetails}</p>
-                <p className='text-sm text-[#9DB2BF]'>{finder.eventMoreInfo}</p>
+                <p className='text-sm text-[#9DB2BF] '>{finder.eventMoreInfo}</p>
               </div>
             </div>
           </div>
