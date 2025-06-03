@@ -43,13 +43,13 @@ const AllEvents = () => {
 
   return (<>
     <SearchBar styles={styles} getSelectedData={getSelectedDate} />
-    <div className="flex flex-col gap-6">
-      {findResult?.length ? findResult.map(p => <div key={p.id} className="rounded-2xl flex justify-between text-center w-[44rem] h-80 bg-stone-600 mx-auto">
-        <div className='w-[50%] h-full rounded-l-2xl'>
+    <div className="flex flex-col gap-6 flex-wrap max-w-full">
+      {findResult?.length ? findResult.map(p => <div key={p.id} className="rounded-2xl flex flex-col md:flex-row justify-between text-center w-[80%] md:max-w-[90%] md:h-80 bg-stone-600 mx-auto">
+        <div className='w-full md:max-w-[50%] h-[50%] md:h-full rounded-l-2xl'>
           <img className="w-full h-full rounded-l-2xl" src={`${p.eventPic}`} />
 
         </div>
-        <div className="w-[47%] text-left">
+        <div className="w-full md:w-[47%] text-left p-2">
           <p className=" text-3xl mt-4"> {p.eventName} </p>
           <div className="flex gap-4 items-center">
             <CiCalendarDate className="fill-stone-900 w-8 h-8" />
@@ -60,10 +60,10 @@ const AllEvents = () => {
             </p>
           </div>
           <p className="flex items-center fill-black gap-3 "> <FaInfoCircle className="text-black" /> {p.eventDetails}</p>
-          <div className="text-right">
+          <div className="text-center md:text-right w-full">
 
-            <Link href={`/allEvents/event${p.id}`}>
-              <button className="bg-cyan-800 cursor-pointer w-36 h-10 rounded-2xl mt-12 mr-4 ">
+            <Link className="" href={`/allEvents/event${p.id}`}>
+              <button className="bg-cyan-800  cursor-pointer w-36 h-10 rounded-2xl mt-12 mr-4 ">
                 Mehre Angaben
               </button>
             </Link>

@@ -38,8 +38,8 @@ const SearchBar = ({ styles, getSelectedData }) => {
     <>
       <div className="">
         <div>
-          <div className="mx-auto w-[50%] h-16 text-center mt-8 text-white">
-            <div className="flex justify-center gap-6 p-2">
+          <div className="mx-auto w-[50%] min-h-16 text-center mt-8 text-white">
+            <div className="flex justify-center gap-4 md:gap-6  p-2 flex-wrap">
               <p className={styles.titleSelect}>Year</p>
               <select onChange={changeSelected} id={'year'} className="w-56 border-2 bg-stone-800  rounded-2xl outline-0">
                 {years.reverse().map(i => <option value={i} className="" key={i}> {i} </option>)}
