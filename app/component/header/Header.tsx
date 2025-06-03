@@ -14,7 +14,7 @@ const Header = () => {
   const currentPath = usePathname();
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
   const [showMenu, setShowMenu] = useState(false);
-  window.addEventListener("resize", () => setCurrentWidth(window.innerWidth));
+  window.addEventListener("load", () => setCurrentWidth(window.innerWidth));
   return (
     <>
       <div className="text-center bg-[#9DB2BF] text-black h-16 flex items-center justify-between text-2xl pl-6 pr-2">
