@@ -46,7 +46,7 @@ const Header = () => {
             <Image className="w-12 h-12 cursor-pointer" src={gitLogo} alt={''} />
           </Link>
         </div>
-        {showMenu && currentWidth <= 640 && <div className='absolute right-0 top-16 w-full h-64 bg-[#9DB2BF] rounded-b-2xl border-4 border-black'>
+        {showMenu && currentWidth <= 640 && <div className='absolute right-0 z-10 top-16 w-full h-64 bg-[rgba(156,177,190,0.86)] rounded-b-2xl border-4 border-black'>
           <div className='list_little flex flex-col pt-2 text-xl text-left indent-4 gap-4'>
             <Link onClick={() => setShowMenu(false)} href={'/'}><p className='item flex items-center pl-3 cursor-pointer'> <Image className="w-6 h-6" src={calenderLogo} alt="eventLogo" /> Persian Calender</p></Link>
             <Link onClick={() => setShowMenu(false)} href={'/allEvents'}> <p className='item flex items-center pl-3 cursor-pointer'> <Image className="w-6 h-6" src={eventLogo} alt="eventLogo" /> Alle Ereignisse sehen</p> </Link>
