@@ -3,7 +3,7 @@ import myPic from "@/public/mypic.jpg"
 const About = () => {
   return (
     <>
-      <div className="w-[60%] h-[30rem] bg-[#9DB2BF] text-black mx-auto mt-32 rounded-2xl relative ">
+      <div className="w-[60%] min-h-[30rem] bg-[#9DB2BF] text-black mx-auto mt-32 rounded-2xl relative py-4 lg:py-1 ">
         <div className="pictureBox">
           <Image className="w-32 h-32 mx-auto rounded-full absolute right-[50%] left-[50%] -translate-1/2" src={myPic} alt="pic" />
         </div>

@@ -48,9 +48,9 @@ const Header = () => {
         </div>
         {showMenu && currentWidth <= 640 && <div className='absolute right-0 z-10 top-16 w-full h-64 bg-[rgba(156,177,190,0.86)] rounded-b-2xl border-4 border-black'>
           <div className='list_little flex flex-col pt-2 text-xl text-left indent-4 gap-4'>
-            <Link onClick={() => setShowMenu(false)} href={'/'}><p className='item flex items-center pl-3 cursor-pointer'> <Image className="w-6 h-6" src={calenderLogo} alt="eventLogo" /> Persian Calender</p></Link>
-            <Link onClick={() => setShowMenu(false)} href={'/allEvents'}> <p className='item flex items-center pl-3 cursor-pointer'> <Image className="w-6 h-6" src={eventLogo} alt="eventLogo" /> Alle Ereignisse sehen</p> </Link>
-            <Link onClick={() => setShowMenu(false)} href={'/about'} > <p className='item flex items-center pl-3 cursor-pointer'><Image className="w-6 h-6" src={InfoLogo} alt="eventLogo" /> Mehr über mich</p> </Link>
+            <Link onClick={() => setShowMenu(false)} href={'/'}><p className={`item flex items-center pl-3 cursor-pointer ${currentPath == '/' && 'underline'} `}> <Image className="w-6 h-6" src={calenderLogo} alt="eventLogo" /> Persian Calender</p></Link>
+            <Link onClick={() => setShowMenu(false)} href={'/allEvents'}> <p className={`item flex items-center pl-3 cursor-pointer ${currentPath == '/allEvents' && 'underline'} `}> <Image className="w-6 h-6" src={eventLogo} alt="eventLogo" /> Alle Ereignisse sehen</p> </Link>
+            <Link onClick={() => setShowMenu(false)} href={'/about'} > <p className={`item flex items-center pl-3 cursor-pointer ${currentPath == '/about' && 'underline'} `}><Image className="w-6 h-6" src={InfoLogo} alt="eventLogo" /> Mehr über mich</p> </Link>
           </div>
         </div>}
       </div>
